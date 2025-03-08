@@ -1,6 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -15,9 +14,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const db = getFirestore();
 
-document.getElementById('loginbtn').addEventListener('click', async function(event) {
+document.getElementById('loginbtn').addEventListener('click', async function (event) {
   event.preventDefault();
 
   const email = document.getElementById('signinemail').value;
@@ -25,16 +23,8 @@ document.getElementById('loginbtn').addEventListener('click', async function(eve
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-
-    // Fetch user role from Firestore
-    const userDoc = await getDoc(doc(db, "users", user.uid));
-
-    if (userDoc.exists()) {
-      window.location.href = "https://99220040811.github.io/learning-management/";
-    } else {
-      alert("Role not defined. Please contact admin.");
-    }
+    // User authenticated successfully
+    window.location.href = "https://99220040811.github.io/learning-management/";
   } catch (error) {
     alert("Login failed: " + error.message);
   }
