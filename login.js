@@ -30,7 +30,7 @@ document.getElementById('loginbtn').addEventListener('click', async function(eve
     // Fetch user role from Firestore
     const userDoc = await getDoc(doc(db, "users", user.uid));
 
-    if (userDoc.exists() && (userDoc.data().role === "faculty" || userDoc.data().role === "student")) {
+    if (userDoc.exists()) {
       window.location.href = "https://99220040811.github.io/learning-management/";
     } else {
       alert("Role not defined. Please contact admin.");
