@@ -26,7 +26,7 @@ document.getElementById('loginbtn').addEventListener('click', async function (ev
     const user = userCredential.user;
 
     // ✅ Redirect immediately after successful login (No Firestore check)
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "http://localhost:3000";
 
   } catch (error) {
     alert("Login failed: " + error.message);
