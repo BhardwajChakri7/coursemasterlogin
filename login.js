@@ -26,7 +26,7 @@ document.getElementById('loginbtn').addEventListener('click', async function (ev
     const user = userCredential.user;
 
     // ✅ Redirect immediately after successful login (No Firestore check)
-    window.location.href = "https://99220040811.github.io/learning-management/";
+    window.location.href = "https://99220040811.github.io/sai/";
 
   } catch (error) {
     alert("Login failed: " + error.message);
